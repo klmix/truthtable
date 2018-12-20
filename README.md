@@ -1,4 +1,4 @@
-# LaTeX Wahrheitstabellen Generator
+# LaTeX Truthtable Generator
 Small beginner Haskell Project, creates Truthtable in LaTeX format.
 Example:
 ```
