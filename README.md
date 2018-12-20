@@ -18,8 +18,8 @@ Supported Operators:
 **& = And    
 | = Or     
 \- = Not 
-< = <- Implies
-> = -> Implies
-# = <-> Biconditional
-Single Letter Variable names    
+< = <- Implies    
+> = -> Implies    
+\# = <-> Biconditional    
+Single Letter Variable names     
 Brackets ( )**        
