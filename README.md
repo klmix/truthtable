@@ -1,7 +1,6 @@
 # LaTeX Wahrheitstabellen Generator
-Kleines anfänger Projekt zur generierung von Wahrheitstabellen aus Aussagenlogischen Formeln im LaTeX Format.
-test
-Bsp.:
+Small beginner Haskell Project, creates Truthtable in LaTeX format.
+Example:
 ```
 Please enter Formula
 A&(B|C)
@@ -15,8 +14,8 @@ A&(B|C)
     True & True & False & True\\
     True & True & True & True\\
 ```
-Unterstützte Operatoren:        
+Supported Operators:        
 **& = And    
 | = Or     
 \- = Not**        
-Sehr fehlerhaft (gerade bei nutzung von - )
+Very buggy (especially when using - )
