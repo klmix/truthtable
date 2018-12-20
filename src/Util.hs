@@ -13,7 +13,7 @@ infixToPrefix inf = transform inf inf
 transform :: Infix -> String -> Prefix
 transform orig inf@(x:xs)
         |length inf <= 1 = orig
-        |x == '|' || x == '&' = uncurry transform $ mvBack orig x xs
+        |x `elem` "|&><#"= uncurry transform $ mvBack orig x xs
         |otherwise = transform orig xs
 
 mvBack :: String -> Char -> String -> (String, String)

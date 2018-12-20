@@ -28,7 +28,18 @@ parse  = fst . parseThis . (filter (\x -> x /= '(' && x /= ')') ) . infixToPrefi
                                  in  (Or x1 x2, xs2)
             parseThis ('-':xs) = let (x1,xs1) = parseThis xs
                                  in  (Not x1, xs1)
+            parseThis ('>':xs) = let (x1,xs1) = parseThis xs
+                                     (x2,xs2) = parseThis xs1
+                                 in  (impl x1 x2, xs2)
+            parseThis ('<':xs) = let (x1,xs1) = parseThis xs
+                                     (x2,xs2) = parseThis xs1
+                                 in  (impl x2 x1, xs2)
+            parseThis ('#':xs) = let (x1,xs1) = parseThis xs
+                                     (x2,xs2) = parseThis xs1
+                                 in (And (impl x1 x2) (impl x2 x1), xs2)
             parseThis (x:xs) = (Var (toUpper x), xs)
+            impl :: Logic -> Logic -> Logic
+            impl a b = Or (Not a) (b)
 
 --TODO should be -> Maybe Bool 
 eval:: Logic -> VariableValues -> Bool
