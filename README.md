@@ -18,4 +18,3 @@ Supported Operators:
 **& = And    
 | = Or     
 \- = Not**        
-Very buggy (especially when using - )
