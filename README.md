@@ -1,0 +1,2 @@
+# truthtable
+Generiert Aussagenlogische Tabellen
