@@ -13,7 +13,7 @@ infixToPrefix inf = transform inf inf
 transform :: Infix -> String -> Prefix
 transform orig inf@(x:xs)
         |length inf <= 1 = orig
-        |x `elem` "|&><#"= uncurry transform $ mvBack orig x xs
+        |x `elem` "|&><#" = uncurry transform $ mvBack orig x xs
         |otherwise = transform orig xs
 
 mvBack :: String -> Char -> String -> (String, String)
@@ -24,9 +24,11 @@ mvBack orig ch rest  = let (left, right) = splitAt (length orig - (length rest))
                         in (newLeft ++ right, rest)
 mvTo :: Char -> String -> Int -> String
 mvTo ch word brackets
-    |word == "" = error "input failure: probably missing bracket"
+    |word == "" = ""
     |last word == '(' && brackets >0 = mvTo ch (init word) (brackets - 1)
+    |last word == '(' = word
     |last word == ')' = mvTo ch (init word) (brackets + 1)
+    |brackets > 0 = mvTo ch (init word) brackets
     |(safeLast $ init word) == (Just '-')  = mvTo ch (init word) brackets
     |otherwise = (init word)
 
