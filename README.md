@@ -17,6 +17,9 @@ A&(B|C)
 Supported Operators:        
 **& = And    
 | = Or     
-\- = Not    
+\- = Not 
+< = <- Implies
+> = -> Implies
+# = <-> Biconditional
 Single Letter Variable names    
 Brackets ( )**        
