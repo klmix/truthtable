@@ -2,7 +2,7 @@ module Main where
 
 import System.IO (hSetBuffering, BufferMode(NoBuffering), stdout)
 import Logic (parse)
-import Wahrheitstabelle (printTable)
+import Truthtable(printTable)
 
 main = do
     hSetBuffering stdout NoBuffering
