@@ -30,9 +30,3 @@ safeLast :: String -> Maybe Char
 safeLast str 
     |str == "" = Nothing
     |otherwise = Just $ last str
-
-safeStrInit :: String -> String
-safeStrInit str 
-    |str == "" = ""
-    |otherwise = init str
-
