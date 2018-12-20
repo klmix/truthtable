@@ -1,6 +1,6 @@
 # LaTeX Wahrheitstabellen Generator
 Kleines anfänger Projekt zur generierung von Wahrheitstabellen aus Aussagenlogischen Formeln im LaTeX Format.
-
+test
 Bsp.:
 ```
 Please enter Formula
