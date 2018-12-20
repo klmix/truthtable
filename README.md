@@ -17,4 +17,6 @@ A&(B|C)
 Supported Operators:        
 **& = And    
 | = Or     
-\- = Not**        
+\- = Not    
+Single Letter Variable names
+Brackets ( )**        
