@@ -18,5 +18,5 @@ Supported Operators:
 **& = And    
 | = Or     
 \- = Not    
-Single Letter Variable names
+Single Letter Variable names    
 Brackets ( )**        
