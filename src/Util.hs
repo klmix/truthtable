@@ -1,4 +1,8 @@
-module Util where
+module Util (
+                infixToPrefix,
+                Infix,
+                Prefix
+            )where
 
 type Infix = String
 type Prefix = String

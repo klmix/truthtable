@@ -27,13 +27,18 @@ createCombinations fLength = let begining = take fLength (repeat False)
 
 --Creates List consisting of every var name in order
 createNameList :: Logic -> String
-createNameList lgc = sort $ getNames lgc
+createNameList lgc = sort $ filterMultiple $ getNames lgc
         where
             getNames :: Logic -> String
             getNames (Not a) = getNames a
             getNames (And a b) = (getNames a) ++ (getNames b)
             getNames (Or a b)  = (getNames a) ++ (getNames b)
             getNames (Var a) = [a]
+            filterMultiple :: String -> String
+            filterMultiple (x:xs)
+                |xs == "" = [x]
+                |x `elem` xs = filterMultiple xs
+                |otherwise = x:filterMultiple xs
 
 --Creates new List Consisteng of of every possible var-assignment
 assignValue :: Logic -> [[(Char,Bool)]]

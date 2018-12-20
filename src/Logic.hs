@@ -4,19 +4,18 @@ module Logic (
                 eval
             )where 
 
-import Data.Char
-import Data.Maybe
-import Util
-
---TODO : add implication and biconditonal
+import Data.Char (toUpper)
+import Data.Maybe(Maybe(..), fromMaybe)
+import Util (infixToPrefix, Infix)
 
 data Logic = Var Char
             |And Logic Logic
             |Or Logic Logic
             |Not Logic
             deriving Show
-
 type VariableValues = [(Char, Bool)]
+
+--TODO : add implication and biconditonal
 
 parse :: Infix -> Logic
 parse  = fst . parseThis . (filter (\x -> x /= '(' && x /= ')') ) . infixToPrefix
@@ -30,6 +29,7 @@ parse  = fst . parseThis . (filter (\x -> x /= '(' && x /= ')') ) . infixToPrefi
             parseThis ('-':xs) = let (x1,xs1) = parseThis xs
                                  in  (Not x1, xs1)
             parseThis (x:xs) = (Var (toUpper x), xs)
+
 --TODO should be -> Maybe Bool 
 eval:: Logic -> VariableValues -> Bool
 eval x val = evalThis x
