@@ -1,5 +1,6 @@
 module Util (
                 infixToPrefix,
+                boolToBit,
                 Infix,
                 Prefix
             )where
@@ -36,3 +37,6 @@ safeLast :: String -> Maybe Char
 safeLast str 
     |str == "" = Nothing
     |otherwise = Just $ last str
+
+boolToBit :: Bool -> String
+boolToBit bl = if bl then "1" else "0"

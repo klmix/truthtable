@@ -6,6 +6,7 @@ module Truthtable
 
 import Data.List (sort,intersperse)
 import Logic (Logic(..),eval)
+import Util (boolToBit)
 
 {-Creates every combination of Lists with fLength of Booleans.
   Original List consists only of FALSE-}
@@ -49,9 +50,9 @@ assignValue lgc = let varTable = createNameList lgc
 createTable :: Logic -> [String]
 createTable lgc = let aV = assignValue lgc
             in map createLine aV
-    where createLine val = (foldl (\x y -> x ++ (show.snd) y ++ " & ") "") val ++ show (eval lgc val) ++ "\\\\"
+    where createLine val = (foldl (\x y -> x ++ (boolToBit.snd) y ++ " & ") "") val ++ boolToBit(eval lgc val) ++ "\\\\"
 
 --Prints the Table
 printTable :: Logic -> String -> IO()
 printTable lgc orig = putStrLn (unlines $ headLine ++ createTable lgc)
-    where headLine = [(intersperse '\t' (createNameList lgc))++('\t':orig)]
+    where headLine = [ (foldr (\x y -> [x] ++ "   " ++ y) "" (createNameList lgc))++ orig ]
