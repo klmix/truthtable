@@ -3,16 +3,12 @@ Small beginner Haskell Project, creates Truthtable in LaTeX format.
 Example:
 ```
 Please enter Formula
-A&(B|C)
-    A	B	C	A&(B|C)
-    False & False & False & False\\
-    False & False & True & False\\
-    False & True & False & False\\
-    False & True & True & False\\
-    True & False & False & False\\
-    True & False & True & True\\
-    True & True & False & True\\
-    True & True & True & True\\
+A>(-A&B)
+A   B   A>(-A&B)
+0 & 0 & 1\\
+0 & 1 & 1\\
+1 & 0 & 0\\
+1 & 1 & 0\\
 ```
 Supported Operators:        
 **& = And    
